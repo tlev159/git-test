@@ -11,7 +11,14 @@ public class MovieService {
         movies.add(movie);
     }
 
-    public Movie findNewestMovie() {
+    public Movie findNewest() {
+        return movies.stream()
+                .max(m-> m.getReleaseDate());
+    }
 
+    public List<Movie> findByNamePart(String namePart) {
+        return movies.stream()
+                .filter(m -> m.getName().contains(namePart))
+                .toList();
     }
 }
