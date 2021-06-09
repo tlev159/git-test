@@ -1,7 +1,9 @@
 package movie;
 
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
+import java.util.Optional;
 
 public class MovieService {
 
@@ -11,9 +13,10 @@ public class MovieService {
         movies.add(movie);
     }
 
-    public Movie findNewest() {
+    public Optional<Movie> findNewest() {
         return movies.stream()
-                .max(m-> m.getReleaseDate());
+                .sorted(Comparator.comparing(Movie::getReleaseDate).reversed())
+                .findFirst();
     }
 
     public List<Movie> findByNamePart(String namePart) {
