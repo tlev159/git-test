@@ -9,8 +9,8 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class MovieServiceTest {
 
-    MovieService movieService;
 
+    MovieService movieService = new MovieService();
 
     @BeforeEach
     void init () {
