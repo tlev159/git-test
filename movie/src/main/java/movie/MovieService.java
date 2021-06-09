@@ -7,5 +7,11 @@ public class MovieService {
 
     private List<Movie> movies = new ArrayList<>();
 
-    public void save()
+    public void save(Movie movie) {
+        movies.add(movie);
+    }
+
+    public Movie findNewestMovie() {
+
+    }
 }
