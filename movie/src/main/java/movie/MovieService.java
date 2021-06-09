@@ -14,9 +14,7 @@ public class MovieService {
     }
 
     public Optional<Movie> findNewest() {
-        return movies.stream()
-                .sorted(Comparator.comparing(Movie::getReleaseDate).reversed())
-                .findFirst();
+        return movies.stream().max(Comparator.comparing(Movie::getReleaseDate));
     }
 
     public List<Movie> findByNamePart(String namePart) {
